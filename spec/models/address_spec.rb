@@ -2,20 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Address, type: :model do
 
-  let(:valid_attributes){:cep => "12312312", 
-		:district => District.new(:name => "CENTRO"), 
-		:number => "10", 
-		:street: "Street"}
+  #let(:valid_attributes){:cep => "12312312", 
+		#:district => District.new(:name => "CENTRO"), 
+	#	:number => "10", 
+	#	:street: "Street"}
 
-	let(:invalid_attributes){:cep => "invalid", 
-		:district => District.new(:name => "1234"), 
-		:number => "abc", 
-		:street: ""}
+	#let(:invalid_attributes){:cep => "invalid", 
+		#:district => District.new(:name => "1234"), 
+	#	:number => "abc", 
+	#	:street: ""}
 
 	describe Address do
 		describe "Creating valid address" do
 			before :each do
-				@address = Address.new(valid_attributes)
+				@address = Address.new(cep: "12312312", number: "10", street: "Street")
 			end
 
 			it "should create a new address" do
@@ -23,5 +23,16 @@ RSpec.describe Address, type: :model do
 			end
 
 		end
+
+		describe "Creating invalid address" do
+			before :each do
+				@address = Address.new(cep: "invalid", number: "abc", street: "")
+			end
+
+			it "should not create a new adress" do
+				expect(@address = Address.new())
+			end
+		end
+
 	end
 end
