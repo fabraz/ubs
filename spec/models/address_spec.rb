@@ -23,6 +23,5 @@ RSpec.describe Address, type: :model do
 				expect(@address.valid?).to be_falsy
 			end
 		end
-
 	end
 end
