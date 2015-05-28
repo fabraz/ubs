@@ -19,20 +19,20 @@ RSpec.describe Address, type: :model do
 			end
 
 			it "should create a new address" do
-				expect(@address.cep).to equal("12312312")
+				expect(@address.cep).to eq("12312312")
 			end
 
 		end
 
-		describe "Creating invalid address" do
-			before :each do
-				@address = Address.new(cep: "invalid", number: "abc", street: "")
-			end
+		#describe "Creating invalid address" do
+		#	before :each do
+		#		@address = Address.new(cep: nil, number: nil, street: nil)
+		#	end
 
-			it "should not create a new adress" do
-				expect(@address = Address.new())
-			end
-		end
+		#	it "should not create a new adress" do
+		#		expect(@address).to eq(nil)
+		#	end
+		#end
 
 	end
 end
