@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe City, type: :model do
- 	pending "add some examples to (or delete) #{__FILE__}"
 
  	let(:valid_attributes) {{:name => "Gama"}}
- 	let(:invalid_attributes) {{:name => "123456"}}
+ 	let(:invalid_attributes) {{:name => nil}}
 
-	describe 'City Creation' do
+	describe City do
 
 		context 'with valid attributes' do
 			before :each do
@@ -14,7 +13,17 @@ RSpec.describe City, type: :model do
 			end
 
 			it "should create a new city" do
-				
+				expect(@city.valid?).to be_truthy
+			end
+		end
+
+		context 'with invalid attributes' do
+			before :each do
+				@city = City.new(invalid_attributes)
+			end
+
+			it "should not create a new city" do
+				expect(@city.valid?).to be_falsey
 			end
 		end
 	end
