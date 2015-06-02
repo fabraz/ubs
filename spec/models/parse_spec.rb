@@ -1,21 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe Parse, :type => :model do
-	describe 'import_ubs' do
-		context 'with invalid file extension' do
-			let(:file_name) {"file.doc"}
+	describe 'import' do
+		context 'with invalid file' do
+			it 'should not create an ubs' do
+				#file = File.open("ubs", mode="r") 
 
-			it 'should show invalid extension file message' do
-				
-			end
+			end	
 		end
 
-		context 'with valid file extension' do
-			file_ext = File.extname("/public/ubs.csv") 
-
-			it 'should open the file' do
-				expect(file_ext).to eql(".csv")
+		context 'with valid file' do
+			before each: do
+				file = CSV.read("/public/ubs.csv")
+				Parse.import(file)
 			end
+
+			it 'should create an ubs' do
+				city =City.first_or_create
+				expect(city).to be_instance_of(City)
+			end			
+
+			it 'should create a district' do
+				district = District.first_or_create
+				expect(district).to be_instance_of(District)
+			end			
+
+			it 'should create an ubs' do
+				ubs = Ubs.first_or_create
+				expect(ubs).to be_instance_of(Ubs)
+			end			
+
 		end
 	end
 end
