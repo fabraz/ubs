@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150604025341) do
+=======
+ActiveRecord::Schema.define(version: 20150602202303) do
+
+>>>>>>> Creating tests for model basic_unit
   create_table "addresses", force: :cascade do |t|
     t.string   "street",       limit: 255
     t.datetime "created_at",               null: false
