@@ -34,6 +34,8 @@ gem 'autotest-rails', :group => [:development, :test]
 gem 'therubyracer', '~> 0.12.2'
 # ExecJS lets you run JavaScript code from Ruby
 gem 'execjs', '~> 2.5.2'
+# Automatic Ruby code style checking tool
+gem 'rubocop', '~> 0.31.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +53,7 @@ group :development, :test do
   # Strategies for cleaning databases
   gem 'database_cleaner', '~> 1.4.1'
   # Code coverage across your test suites
-  gem 'simplecov', '~> 0.10.0'
+  gem 'simplecov', '~> 0.10.0', require: false
   # BDD for ruby and rails
   gem 'rspec-rails', '~> 3.2.1' 
   # Use Metricfu for code quality
