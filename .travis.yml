@@ -21,4 +21,4 @@ after_success: coveralls
 # Specify branchs to build
 branches:
     only:
-      - parser
+      - master
