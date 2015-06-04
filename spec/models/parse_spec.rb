@@ -2,48 +2,64 @@ require 'rails_helper'
 
 RSpec.describe Parse, :type => :model do
 	describe 'import' do
-		context 'with invalid file' do
-			it 'should not create an ubs' do
-
-			end	
-		end
-
-		context 'with valid file' do
-			before :each do
-			#	file = File.new("ubs.csv", "w") 
-			#	file.puts("vlr_latitude,vlr_longitude,cod_munic,cod_cnes,nom_estab,dsc_endereco,dsc_bairro,dsc_cidade,dsc_telefone,dsc_estrut_fisic_ambiencia,dsc_adap_defic_fisic_idosos,dsc_equipamentos,dsc_medicamentos
-#-10.911237,-37.06207752,280030,3492,US OSWALDO DE SOUZA,TV ADALTO BOTELHO,GETULIO VARGAS,Aracaju,7931791326,Desempenho acima da média,Desempenho muito acima da média,Desempenho mediano ou  um pouco abaixo da média,Desempenho acima da média")
-				file = File.open('public/ubs2.csv')
+		context 'with invalid file extention' do
+			before do
+				file = File.open('public/csv/ubs_test.txt')
 				Parse.import(file)
 			end
 
-			it 'should create a city' do
-				city = City.first
-				expect(city).to be_instance_of(City)
-			end			
+			it 'should raise a exception'
+		end
 
-			it 'should create a district' do
-				district = District.first
-				expect(district).to be_instance_of(District)
-			end	
+		context 'with valid file extention and attributes' do
+			before do
+				file = File.open('public/csv/ubs_test.csv')
+				Parse.import(file)
+			end
 
-			it 'should create a address' do
-				address = Address.first
-				expect(address).to be_instance_of(Address)
-			end		
+			subject(:city){City.first}
+			subject(:district){District.first}
+			subject(:address){Address.first}
+			subject(:basic_unit){BasicUnit.first}
 
-			# it 'should create an basic unity' do
-			# 	ubs = Ubs.first
-			# 	expect(ubs).to be_instance_of(Ubs)
-			# end			
+			context 'creating models' do
+				it 'should have a city' do
+					expect(city).to be_a(City)
+				end
 
+				it 'should have a district' do
+					expect(district).to be_a(District)
+				end
+
+				it 'should have a address' do
+					expect(address).to be_a(Address)
+				end
+
+				it 'should have a basic unit' do
+					expect(basic_unit).to be_a(BasicUnit)
+				end
+			end
+
+			context 'creating relationship' do
+				it 'should have a association between city and district' do
+					expect(city.districts).not_to be_empty
+					expect(city.districts.first).to be_a(District)
+				end
+
+				it 'should have a association between district and address' do
+					expect(district.address).not_to be_empty
+					expect(district.address.first).to be_a(Address)
+				end
+				
+			end
+		end
+
+		context 'with valid file and invalid attributes' do
+			context 'creating models' do
+				it 'should not let create a city'
+				it 'should not let create a district'
+				it 'should not let create a basic unit'
+			end
 		end
 	end
 end
-
-# Casos de Teste
-
-# arquivo com extensao errada
-# expect().to have city
-# expect().to have district
-# expect().to have ubs
