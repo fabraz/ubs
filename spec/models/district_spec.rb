@@ -18,13 +18,13 @@ RSpec.describe District, type: :model do
 		context "when enter valid attributes" do
 			context "only letters" do
 				subject(:valid_district){District.new(valid_attr_name)}
-				it "should set a district" do
+				it "should create a district" do
 					expect(valid_district.valid?).to be_truthy
 				end
 			end
 			context "letters and numbers" do
 				subject(:valid_district){District.new(valid_attr_name_number)}
-				it "should set a district" do
+				it "should create a district" do
 					expect(valid_district.valid?).to be_truthy
 				end
 			end
@@ -33,19 +33,19 @@ RSpec.describe District, type: :model do
 		context "when enter invalid attributes" do
 			context "blank name" do
 				subject(:invalid_district){District.new(invalid_attr_name_blank)}
-				it "should not be valid" do
+				it "should not be created" do
 					expect(invalid_district.valid?).to be_falsey
 				end
 			end
 			context "with just numbers" do
 				subject(:invalid_district){District.new(invalid_attr_name_number)}
-				it "should not be valid" do
+				it "should not be created" do
 					expect(invalid_district.valid?).to be_falsey
 				end
 			end
 			context "with just special chars" do
 				subject(:invalid_district){District.new(invalid_attr_name_char)}
-				it "should not be valid" do
+				it "should not be created" do
 					expect(invalid_district.valid?).to be_falsey
 				end
 			end
