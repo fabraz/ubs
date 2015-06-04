@@ -50,7 +50,7 @@ group :development, :test do
   # Use Cucumber for BDD test
   gem 'cucumber', '~> 2.0.0'
 
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
 
   gem 'database_cleaner'
 

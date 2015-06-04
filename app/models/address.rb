@@ -1,3 +1,3 @@
 class Address < ActiveRecord::Base
-	validates :cep, :number, :street, presence: true
+	validates :district_id, :country_code, :street, presence: true
 end

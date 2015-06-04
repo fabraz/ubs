@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :cities
   resources :parses do
     collection {post :import}
   end

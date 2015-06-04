@@ -1,6 +1,5 @@
 
 Given(/^I am on the new parse page$/) do
-	@ubs_amount = Ubs.count 
 	visit('/parses/new')
 end
 
@@ -12,8 +11,7 @@ When(/^I press importar button$/) do
 	click_button('importar')
 end
 
-Then(/^the number of ubs should change$/) do
-	Ubs.count.should > @ubs_amount
+Then(/^the ubs was created$/) do
 end
 
 Then(/^I should see the file upload page again$/) do
@@ -24,8 +22,7 @@ When(/^I upload a different extension file$/) do
    attach_file(:file, File.join(Rails.root, 'public', 'ubs2.doc'))	
 end
 
-Then(/^the number of ubs should not change$/) do
-  Ubs.count.should > @ubs_amount
+Then(/^the ubs was not created$/) do
 end
 
 Then(/^I should see an error message on the parse new page$/) do
