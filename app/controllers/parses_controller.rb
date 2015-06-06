@@ -1,6 +1,8 @@
 class ParsesController < ApplicationController
   before_action :set_parse, only: [:show, :edit, :update, :destroy]
 
+
+
   def show
   end
 
@@ -30,7 +32,7 @@ class ParsesController < ApplicationController
 
     if accepted_formats.include? File.extname(file_name)
       Parse.import(params[:file])
-      redirect_to parses_url, notice: "Dados importados"
+      redirect_to parses_path, notice: "Dados importados"
     else
       flash[:notice] = "Extensão inválida, por favor selecione um arquivo csv"
       render :new

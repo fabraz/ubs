@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
 	has_many :districts
 
-	validates :city_name, presence: true
+	validates :name, presence: true
 end

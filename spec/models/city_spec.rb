@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe City, type: :model do
 
 	# Attributes for City
- 	let(:valid_attr) {{city_name: "Gama"}}
- 	let(:invalid_attr_name_nil) {{city_name: nil}}
- 	let(:invalid_attr_name_blank) {{city_name: ""}}
+ 	let(:valid_attr) {{name: "Gama"}}
+ 	let(:invalid_attr_name_nil) {{name: nil}}
+ 	let(:invalid_attr_name_blank) {{name: ""}}
 
  	# Attributes for District
 	let(:valid_attr_district){{district_name: "CENTRO"}}

@@ -19,14 +19,6 @@ RSpec.describe BasicUnit, type: :model do
   		city_id: "12345678"
   }} 
 
-  let(:invalid_city) {{
-  		latitude: 15.841038, 
-  		longitude: 15.841038, 
-  		estab_name: "Hospital",
-  		phone: "123",
-  		city_id: "12345"
-  }}
-
   context "Valid Basic Unit" do
   	before :each do
   		@valid_basic_unit = BasicUnit.new(valid_attributes)
@@ -40,12 +32,10 @@ RSpec.describe BasicUnit, type: :model do
   context "Invalid Basic Unit" do
   	before :each do
   		@invalid_basic_unit_1 = BasicUnit.new(invalid_attributes)
-  		@invalid_basic_unit_2 = BasicUnit.new(invalid_city)
   	end
 
   	it "should not create an invalid basic unit" do
   		expect(@invalid_basic_unit_1.valid?).to be_falsy
-  		expect(@invalid_basic_unit_2.valid?).to be_falsy
   	end
   end
 
