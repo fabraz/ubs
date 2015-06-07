@@ -11,6 +11,7 @@ befor_script:
 
 # Script for test env
 script:
+  - export SECRET_KEY_BASE="$(bundle exec rake secret RAILS_ENV=travis)"
   - bundle exec rake db:migrate:reset RAILS_ENV=travis
   - bundle exec rake RAILS_ENV=travis
 
