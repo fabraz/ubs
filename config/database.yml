@@ -26,6 +26,12 @@ test: &test
   <<: *default
   database: ubs_test
 
+travis:
+  <<: *default
+  username: travis
+  password: ""
+  database: ubs_test
+
 production:
   <<: *default
   database: ubs_prod

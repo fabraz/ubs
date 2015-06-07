@@ -11,9 +11,8 @@ befor_script:
 
 # Script for test env
 script:
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate RAILS_ENV=test
-  - bundle exec rspec
+  - bundle exec rake db:migrate:reset RAILS_ENV=travis
+  - bundle exec rake RAILS_ENV=travis
 
 # After success runs coveralls for coverage
 after_success: coveralls
