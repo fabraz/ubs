@@ -1,9 +1,24 @@
+# Define the main code language
 language: ruby
+
+# Runs rvm dependencies
 rvm:
-  - 2.1.2
-  - jruby-18mode
-  - jruby-19mode
-  - rbx-2
-  - ruby-head
-  - jruby-head
-  - ree
+  - 2.2.2
+
+# Before all
+befor_script:
+  - mysql -e 'create database ubs_test;'
+
+# Script for test env
+script:
+  - bundle exec rake db:create RAILS_ENV=test
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rspec
+
+# After success runs coveralls for coverage
+after_success: coveralls
+
+# Specify branchs to build
+branches:
+    only:
+      - master
