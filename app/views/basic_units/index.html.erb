@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Search an Ubs</h1>
+
+<%= form_tag basic_units_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :estab_name =>nil %>
+  </p>
+<% end %>
+
+
+<% if @basic_units.present? %>
+  <p>
+    <strong>Nome:</strong>
+    <%=@basic_units.estab_name%>
+  </p>
+
+  <p>
+    <strong>Endereço:</strong>
+    <%=@basic_units.address_id%>
+  </p>
+
+  <p>
+    <strong>Telefone:</strong>
+    <%=@basic_units.phone%>
+  </p>
+  
+<% else %>
+  <p>Não existe nenhuma unidade básica cadastrada com esse nome</p>
+<% end %>
+
+<br>
+
+<%= link_to 'New Basic unit', new_basic_unit_path %>
