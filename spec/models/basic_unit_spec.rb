@@ -39,4 +39,35 @@ RSpec.describe BasicUnit, type: :model do
   	end
   end
 
+  describe 'search' do
+
+    context "With a valid name" do
+      let(:valid_name){"US OSWALDO DE SOUZA"}
+
+      before do
+        @search = BasicUnit.search(valid_name)
+      end
+
+      it "should have the main data of the basic_unit" do
+        expect(@search.estab_name).not_to be_empty
+        expect(@search.latitude).not_to be_empty
+        expect(@search.longitude).not_to be_empty
+      end
+    end
+
+    context "With an invalid name" do
+      let(:invalid_name){"Nome invalido"}
+
+      before do
+        @search = BasicUnit.search(invalid_name)
+      end
+
+      it "should not return an basic_unit" do
+        expect(@seach).to be_empty
+      end
+    end
+
+
+  end
+
 end
