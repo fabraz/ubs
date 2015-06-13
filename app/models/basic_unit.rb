@@ -1,7 +1,7 @@
 class BasicUnit < ActiveRecord::Base
-  has_one :city
-  has_one :address
-  has_one :district
+  belongs_to :city
+  belongs_to :address
+  belongs_to :district
 
   validates :latitude, numericality: true
   validates :longitude, numericality: true
@@ -9,12 +9,7 @@ class BasicUnit < ActiveRecord::Base
   validates :phone, numericality: true
 
   def self.search(search)
-  	if search
-  		#find(:all, :conditions => ['estab_name LIKE ?', "%#{search}%"])
   		BasicUnit.find_by_estab_name(search)
-  	else
-  		print "-------------NÃO ACHOU----------------"
-  	end
   end
 end
 

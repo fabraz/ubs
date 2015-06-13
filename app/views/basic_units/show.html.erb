@@ -1,4 +1,63 @@
+<h1>Perfil</h1>
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_basic_unit_path(@basic_unit) %> |
+<p>
+  <strong>Nome:</strong>
+  <%=@basic_unit.estab_name%>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%=@basic_unit.phone%>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%=@basic_unit.address.street%>
+</p>
+
+<p>
+  <strong>Código do Município:</strong>
+  <%=@basic_unit.address.country_code%>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%=@basic_unit.city.name%>
+</p>
+
+
+<p>
+  <strong>Distrito:</strong>
+  <%=@basic_unit.district.district_name%>
+</p>
+
+<p>
+  <strong>Código CNES:</strong>
+  <%=@basic_unit.cnes_id%>
+</p>
+
+<p>
+  <strong>Situação do estabelecimento:</strong>
+  <%=@basic_unit.physical_situation%>
+</p>
+
+<p>
+  <strong>Acessibilidade:</strong>
+  <%=@basic_unit.special_needs_situation%>
+</p>
+
+<p>
+  <strong>Condições dos remédios:</strong>
+  <%=@basic_unit.meds_situation%>
+</p>
+
+<p>
+  <strong>Condições dos equipamentos:</strong>
+  <%=@basic_unit.equips_situation%>
+</p>
+
+
+
 <%= link_to 'Back', basic_units_path %>

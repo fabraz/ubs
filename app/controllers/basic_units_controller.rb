@@ -4,7 +4,15 @@ class BasicUnitsController < ApplicationController
   # GET /basic_units
   # GET /basic_units.json
   def index
-    @basic_units = BasicUnit.search(params[:search])
+    @basic_unit = BasicUnit.search(params[:search])
+
+    if @basic_unit.present?
+      render :show , id: @basic_unit.id
+    elsif !@basic_unit.present? && params[:search].present?
+      flash[:notice] = "Unidade Básica de Saúde não encontrada"
+    end
+
+    @basic_unit = BasicUnit.all
   end
 
   # GET /basic_units/1
