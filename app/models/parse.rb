@@ -5,9 +5,20 @@ class Parse < ActiveRecord::Base
 			ubs_hash = row.to_hash # All datas in the row
 			ubs_hash[:dsc_telefone] = "0" if ubs_hash[:dsc_telefone] == "Não se aplica" # Replace 
 
+			if City.find_by_name(ubs_hash[:dsc_cidade])
+				city = City.find_by_name(ubs_hash[:dsc_cidade])
+			else
+			    city = City.create(:name => ubs_hash[:dsc_cidade])
+			end
+
+			if District.find_by_district_name(ubs_hash[:dsc_bairro])
+				district = District.find_by_district_name(ubs_hash[:dsc_bairro])
+			else
+			    district = District.create(:district_name => ubs_hash[:dsc_bairro],:city_id => city.id)
+			end
+
+
 			# Creating models
-		    city = City.create(:name => ubs_hash[:dsc_cidade])
-		    district = District.create(:district_name => ubs_hash[:dsc_bairro],:city_id => city.id)
 		    address = Address.create(district_id: district.id, 
 		    	street: ubs_hash[:dsc_endereco], 
 		    	country_code: ubs_hash[:cod_munic])
@@ -24,5 +35,7 @@ class Parse < ActiveRecord::Base
 		        :city_id => city.id,
 		        :district_id => district.id)
 		end
+
+
 	end
 end

@@ -11,12 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150604025341) do
-=======
-ActiveRecord::Schema.define(version: 20150602202303) do
 
->>>>>>> Creating tests for model basic_unit
+ActiveRecord::Schema.define(version: 20150604025341) do
   create_table "addresses", force: :cascade do |t|
     t.string   "street",       limit: 255
     t.datetime "created_at",               null: false
@@ -28,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150602202303) do
   create_table "basic_units", force: :cascade do |t|
     t.float    "latitude",                limit: 24
     t.float    "longitude",               limit: 24
-    t.integer  "city_id",                 limit: 7
+    t.integer  "city_id",                 limit: 4
     t.integer  "cnes_id",                 limit: 4
     t.string   "estab_name",              limit: 255
     t.integer  "address_id",              limit: 4
@@ -42,9 +38,9 @@ ActiveRecord::Schema.define(version: 20150602202303) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "basic_units", ["address_id"], name: "index_basic_units_on_address_id", using: :btree
-  add_index "basic_units", ["city_id"], name: "index_basic_units_on_city_id", using: :btree
-  add_index "basic_units", ["district_id"], name: "index_basic_units_on_district_id", using: :btree
+  add_index "basic_units", ["address_id"], name: "fk_rails_41b7b2f88a", using: :btree
+  add_index "basic_units", ["city_id"], name: "fk_rails_944e12659f", using: :btree
+  add_index "basic_units", ["district_id"], name: "fk_rails_4f2a26a245", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",       limit: 255
