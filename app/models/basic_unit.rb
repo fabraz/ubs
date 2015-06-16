@@ -1,6 +1,4 @@
 class BasicUnit < ActiveRecord::Base
-  include Geocoder::Model::Mongoid
-
   belongs_to :city
   belongs_to :address
   belongs_to :district

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :basic_units
 
+
+  get '/locating_ubs', to: 'maps#map'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
