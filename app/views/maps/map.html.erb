@@ -1,0 +1,56 @@
+
+<h1>Localizar UBS mais próxima</h1>
+
+<h3>Por favor, selecione uma cidade: </h3>
+
+<div class="city">
+  <%= form_tag locating_ubs_path, :method => 'get' do %>
+    <%=select_tag :city, options_for_select(@cities) %>
+    <%= submit_tag 'search'%>
+  <%end%>
+<div>
+
+
+<br>
+<br>
+
+
+<div class="map" style='width: 800px;'>
+  <div id="map" style='width: 1000px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap(
+    {
+      provider: {
+        disableDefaultUI: false,
+        
+        // here you can pass other Google Maps API options here
+      },
+      internal: {
+        id: 'map'
+      }
+    },
+    function() {
+      markers = handler.addMarkers([
+        {
+          "lat": -9.48594331741306,
+          "lng": -35.8575725555409,
+          "picture": {
+            "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+            "width":  70,
+            "height": 70
+          },
+          "infowindow": "hello!"
+        }
+      ]);
+      
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      // handler.getMap().setZoom(9);
+    }
+  );
+
+</script>

@@ -37,8 +37,14 @@ gem 'execjs', '~> 2.5.2'
 # Automatic Ruby code style checking tool
 gem 'rubocop', '~> 0.31.0'
 
-#Provides object geocoding (by street or IP address), reverse geocoding (coordinates to street address)
-gem 'geocoder', '1.2.9'
+# Provides object geocoding (by street or IP address), reverse geocoding (coordinates to street address)
+gem 'underscore'
+
+#
+gem 'geocoder'
+
+# Provides geocoding and map locations.
+gem 'gmaps4rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
