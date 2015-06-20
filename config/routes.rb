@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 
   get '/locating_ubs', to: 'maps#map'
+  post '/locating_ubs', to: 'maps#map'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
