@@ -4,11 +4,6 @@ class MapsController < ApplicationController
 	def map
 		@cities = City.all.map { |city| city.name}
 
-        # This one will be the location from the browser
-		@ubs_location = BasicUnit.first
-
-		@nearest = @ubs_location.nearbys(2).first
-
 		if params[:city].present?
 			@basic_units =  BasicUnit.joins(:city).where(cities: {name: params[:city]})
 			@hash = Gmaps4rails.build_markers(@basic_units) do |ubs, marker|

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150607212241) do
+=======
+ActiveRecord::Schema.define(version: 20150614025547) do
+
+>>>>>>> 59e370e96d9b5617afe0f4325bf579a8eda9d8f5
   create_table "addresses", force: :cascade do |t|
     t.string   "street",       limit: 255
     t.datetime "created_at",               null: false

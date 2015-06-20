@@ -50,6 +50,15 @@ gem 'geocoder'
 # Provides geocoding and map locations.
 gem 'gmaps4rails'
 
+# Provides object geocoding (by street or IP address), reverse geocoding (coordinates to street address)
+gem 'underscore'
+
+#
+gem 'geocoder'
+
+# Provides geocoding and map locations.
+gem 'gmaps4rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'web-console', '~> 2.0'

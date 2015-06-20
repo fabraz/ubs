@@ -1,6 +1,7 @@
 
 <h1>Localizer a unidade de saúde mais próxima</h1>
 
+
 <h3>Por favor, selecione uma cidade: </h3>
 
 <div class="city">
@@ -10,16 +11,10 @@
   <%end%>
 <div>
 
+
+<!-- <li><%= link_to @nearest.estab_name, @nearest %>(<%=@nearest.distance.round(2) %> kilômetros) -->
 <br>
 <br>
-<!-- 
-To Do
-passar a localização atual para o metodo nearest(geocoder pegar a localização do browser)
-
-rota: gmap4rais ou geocoder -->
-
-
-<li><%= link_to @nearest.estab_name, @nearest %>(<%=@nearest.distance.round(2) %> kilômetros)
 
 <div class="map" style='width: 800px;'>
   <div id="map" style='width: 1000px; height: 400px;'></div>
@@ -74,7 +69,6 @@ rota: gmap4rais ou geocoder -->
         navigator.geolocation.getCurrentPosition(displayOnMap);
       }
 
-
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
       // handler.getMap().setZoom(9);
@@ -91,4 +85,5 @@ rota: gmap4rais ou geocoder -->
     });
     handler.map.centerOn(marker);
   };
+
 </script>
