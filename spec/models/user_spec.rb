@@ -4,35 +4,35 @@ RSpec.describe User, type: :model do
 
 	# Valid attributes for user
 	let(:valid_attr){{
-		user_name: "PAULO",
-		email: "paulohtfs@gmail.com",
+		user_name: "user",
+		email: "user@email.com",
 		password:"mudar123"
 	}}
 	let(:valid_attr_diff){{
-		user_name: "PAULO123",
-		email: "paulohtfs_99@gmail.com",
+		user_name: "user123",
+		email: "user_99@email.com",
 		password:"mudar123"
 	}}
 
 	# Invalid attributes for user
 	let(:invalid_attr_email){{
-		user_name: "PAULO",
+		user_name: "user",
 		email: "email",
 		password:"mudar123"
 	}}
 	let(:invalid_attr_duplicate_name){{
-		user_name: "PAULO",
-		email: "paulohtfs_1100@gmail.com",
+		user_name: "user",
+		email: "user_1100@email.com",
 		password:"mudar123"
 	}}
 	let(:invalid_attr_duplicate_email){{
-		user_name: "PAULO332",
-		email: "paulohtfs@gmail.com",
+		user_name: "user332",
+		email: "user@email.com",
 		password:"mudar123"
 	}}
 	let(:invalid_attr_passw_less_then_8){{
-		user_name: "PAULO",
-		email: "paulohtfs555@gmail.com",
+		user_name: "user",
+		email: "user555@email.com",
 		password:"mudar12"
 	}}
 
