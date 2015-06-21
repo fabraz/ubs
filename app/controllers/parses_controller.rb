@@ -1,8 +1,7 @@
 class ParsesController < ApplicationController
   before_action :set_parse, only: [:show, :edit, :update, :destroy]
 
-
-
+  # GET /parses
   def show
   end
 
