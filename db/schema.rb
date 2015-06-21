@@ -11,12 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150607212241) do
-=======
-ActiveRecord::Schema.define(version: 20150614025547) do
+ActiveRecord::Schema.define(version: 20150621211851) do
 
->>>>>>> 59e370e96d9b5617afe0f4325bf579a8eda9d8f5
   create_table "addresses", force: :cascade do |t|
     t.string   "street",       limit: 255
     t.datetime "created_at",               null: false
@@ -48,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150614025547) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",       limit: 255
+    t.integer  "state_id",   limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -62,6 +59,21 @@ ActiveRecord::Schema.define(version: 20150614025547) do
   create_table "parses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "state_acronym", limit: 255, null: false
+    t.string   "state_name",    limit: 255, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string   "who_suggests",    limit: 255
+    t.text     "suggestion_text", limit: 65535
+    t.string   "respond_email",   limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
