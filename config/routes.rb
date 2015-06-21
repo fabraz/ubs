@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   # Static pages
   get 'suggestions/thank_you' => 'suggestions#thank_you'
 
+  # Charts
+  get 'ubs_density', to: 'charts#ubs_density'
 end
