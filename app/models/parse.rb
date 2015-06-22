@@ -22,6 +22,7 @@ class Parse < ActiveRecord::Base
 		    address = Address.create(district_id: district.id, 
 		    	street: ubs_hash[:dsc_endereco], 
 		    	country_code: ubs_hash[:cod_munic])
+		    
 		    basic_unit = BasicUnit.create(:estab_name => ubs_hash[:nom_estab], 
 		    	:latitude => ubs_hash[:vlr_latitude], 
 		    	:longitude =>ubs_hash[:vlr_longitude], 

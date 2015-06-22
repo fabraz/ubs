@@ -2,7 +2,7 @@ class MapsController < ApplicationController
 
 	# Generating mapping datapoints
 	def map
-		@cities = City.all.map { |city| city.name}
+		@cities = City.all.map { |city| city.name}.sort
 
 		if params[:city].present?
 			@basic_units =  BasicUnit.joins(:city).where(cities: {name: params[:city]})
