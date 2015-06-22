@@ -3,11 +3,13 @@ class CreateBasicUnits < ActiveRecord::Migration
     create_table :basic_units do |t|
       t.float :latitude
       t.float :longitude
-      t.references :city, foreign_key: true
       t.integer :cnes_id
-      t.string :estab_name
+
+      t.references :city, foreign_key: true
       t.references :address, foreign_key: true
       t.references :district, foreign_key: true
+      
+      t.string :estab_name
       t.string :phone
       t.string :physical_situation
       t.string :special_needs_situation
