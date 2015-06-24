@@ -9,10 +9,8 @@ class BasicUnit < ActiveRecord::Base
   validates :phone, numericality: true
 
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
 
   def self.search(search)
-  		BasicUnit.find_by_estab_name(search)
+    BasicUnit.find_by_estab_name(search)
   end
 end
-
